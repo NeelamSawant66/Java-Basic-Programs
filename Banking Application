@@ -1,0 +1,101 @@
+import java.util.Scanner;
+
+public class ShoppingPotal {
+
+
+	static int Balance;
+	static String Cname;
+	static String CustID;
+	static int PreviousTransactions;
+	static int amount;
+	ShoppingPotal(){
+		this.Cname =Cname;
+		this.CustID= CustID;
+	}
+
+	public static void main(String[] args) {
+		System.out.println("Enter your Name :");
+		Scanner nm =new Scanner(System.in);
+		Cname = nm.nextLine();
+		System.out.println("Enter Your ID:");
+		Scanner id = new Scanner(System.in);
+		CustID = id.nextLine();
+		System.out.println("WELCOME " + Cname + " TO BANKING APPLICATION");
+		System.out.println("Yours ID is" + CustID);
+		System.out.println("");
+		System.out.println("A. BALANCE");
+		System.out.println("B. DEPOSITE");
+		System.out.println("C. WITHDRAW");
+		System.out.println("D. PREVIOUS TRANSACTION");
+		System.out.println("E. EXIT");
+		String option;
+		do {
+			System.out.println("__________________________________________________________________________________");
+			System.out.println(" Enter An Option");
+			System.out.println("----------------------------------------------------------------------------------");
+			Scanner SC = new Scanner(System.in);
+			option = String.valueOf(SC.next().charAt(0));
+			System.out.println("");
+
+			switch (option) {
+				case "A":
+					System.out.println("____________________________________________________________________________");
+					System.out.println("Balance = " + Balance);
+					System.out.println("----------------------------------------------------------------------------");
+					System.out.println("  ");
+
+				case "B":
+					System.out.println("____________________________________________________________________________");
+					System.out.println("Enter An Amount To Deposite:");
+					System.out.println("----------------------------------------------------------------------------");
+					amount = SC.nextInt();
+					deposite();
+					System.out.println("");
+
+				case "C":
+					System.out.println("____________________________________________________________________________");
+					System.out.println("Enter An Amount To Withdraw");
+					System.out.println("----------------------------------------------------------------------------");
+					amount = SC.nextInt();
+					withdraw();
+					System.out.println("");
+
+				case "D":
+					System.out.println("____________________________________________________________________________");
+					getPreviousTransations();
+					System.out.println("----------------------------------------------------------------------------");
+					System.out.println("");
+			}
+		} while (option == "E");
+		{
+			System.out.println("____________________________________________________________________________");
+			System.out.println("THANK YOU FOR USING OUR SERVICES");
+			System.out.println("----------------------------------------------------------------------------");
+		}
+	}
+
+
+	static void deposite() {
+		Balance = Balance + amount;
+		PreviousTransactions = amount;
+	}
+
+
+	static  void withdraw() {
+
+		Balance = Balance - amount;
+		PreviousTransactions = amount;
+
+	}
+
+
+	public static  void getPreviousTransations() {
+		if (PreviousTransactions > 0) {
+			System.out.println("Deposited: +" + PreviousTransactions);
+		} else if (PreviousTransactions < 0) {
+			System.out.println("Withdrawered: -" + PreviousTransactions);
+		} else {
+			System.out.println("No Transaction Performeed");
+		}
+	}
+}

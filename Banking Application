@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class ShoppingPotal {
+public class BankingApplication {
 
 
 	static int Balance;

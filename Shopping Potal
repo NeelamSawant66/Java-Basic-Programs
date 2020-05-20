@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class ShoppingPotal {
 
     public static void main(String[] args) {
         System.out.println("--------------------------------------------------------------------------------");
@@ -21,70 +21,98 @@ public class Main {
         System.out.println("|---| |---  |---|   | | | | |----  |      |     |    | | |_| | | |");
         System.out.println("|   | |----   |     |_| |_| |----- |_____ |___| |____| |     | 0 0");
         System.out.println("");
-        System.out.println("1.Men    2.Women    3.Kids");
+        selection();
+
+    }
+
+    private static void selection() {
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("1.Men    2.Women    3.Kids    4.EXIT");
         System.out.println("Choose a Catergory");
-        Scanner pr1 =new Scanner(System.in);
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        Scanner pr1 = new Scanner(System.in);
         int value = pr1.nextInt();
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         if (value == 1) {
             System.out.println("You Selected Men's Section");
+            men();
+        } else if (value == 2) {
+            System.out.println("You Selected Women's Section");
+            women();
+        } else if (value == 3) {
+            System.out.println("You Selected Kid's Section");
+            kids();
+        }else if(value==4){
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            System.out.println("Thank You For Using Shopping Potal :)");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        } else {
+            System.out.println("Invalid Selection");
+        }
+    }
+
+    private static void men() {
             System.out.println("1.T-shirts   2.Pants   3.Shoes");
             System.out.println("Choose a Catergory");
             System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-            Scanner pr2 =new Scanner(System.in);
+            Scanner pr2 = new Scanner(System.in);
             int men = pr2.nextInt();
             if (men == 1) {
                 System.out.println("You Selected T-shirts Section");
-                 Colour();
+                Colour();
             } else if (men == 2) {
                 System.out.println("You Selected Pants Section");
                 Colour();
             } else if (men == 3) {
                 System.out.println("You Selected Shoes Section");
                 Colour();
-            }
-        } else if (value == 2) {
-            System.out.println("You Selected Women's Section");
-            System.out.println("1.Tops   2.Pants   3.Shoes");
-            System.out.println("Choose a Catergory");
-            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-            Scanner pr3 =new Scanner(System.in);
-            int women = pr3.nextInt();
-            if (women == 1) {
-                System.out.println("You Selected Tops Section");
-                Colour();
-            } else if (women == 2) {
-                System.out.println("You Selected Pants Section");
-                Colour();
-            } else if (women == 3) {
-                System.out.println("You Selected Shoes Section");
-                Colour();
-            }
-        } else if (value == 3) {
-            System.out.println("You Selected Kid's Section");
-            System.out.println("1.T-shirts/tops   2.Pants   3.Shoes");
-            System.out.println("Choose a Catergory");
-            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-            Scanner pr4 =new Scanner(System.in);
-            int kids = pr4.nextInt();
-            if (kids == 1) {
-                System.out.println("You Selected T-shirts Section");
-                Colour();
-            } else if (kids == 2) {
-                System.out.println("You Selected Pants Section");
-                 Colour();
-            } else if (kids == 3) {
-                System.out.println("You Selected Shoes Section");
-                 Colour();
             } else {
-                System.out.println("Invalid selection");
-
+                System.out.println("Invalid Selection");
+                men();
             }
         }
-
-
+private static void women(){
+    System.out.println("1.Tops   2.Pants   3.Shoes");
+    System.out.println("Choose a Catergory");
+    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    Scanner pr3 =new Scanner(System.in);
+    int women = pr3.nextInt();
+    if (women == 1) {
+        System.out.println("You Selected Tops Section");
+        Colour();
+    } else if (women == 2) {
+        System.out.println("You Selected Pants Section");
+        Colour();
+    } else if (women == 3) {
+        System.out.println("You Selected Shoes Section");
+        Colour();
+    }else {
+        System.out.println("Invalid Selection");
+        women();
     }
-    static void Colour(){
+}
+    private static void kids() {
+        System.out.println("1.T-shirts/tops   2.Pants   3.Shoes");
+        System.out.println("Choose a Catergory");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        Scanner pr4 = new Scanner(System.in);
+        int kids = pr4.nextInt();
+        if (kids == 1) {
+            System.out.println("You Selected T-shirts Section");
+            Colour();
+        } else if (kids == 2) {
+            System.out.println("You Selected Pants Section");
+            Colour();
+        } else if (kids == 3) {
+            System.out.println("You Selected Shoes Section");
+            Colour();
+        } else {
+            System.out.println("Invalid selection");
+            kids();
+        }
+    }
+
+   private static void Colour(){
         System.out.println("1.Red   2.Blue   3.Black");
         System.out.println("Choose a Colour");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -105,5 +133,17 @@ public class Main {
         System.out.println("             THANK YOU FOR SELECTING");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+       System.out.println("Do You Want To Continue Selecting ?");
+       System.out.println("1.Yes     2.No");
+        Scanner yn =new Scanner(System.in);
+        int YesNo =yn.nextInt();
+        if (YesNo==1) {
+            selection();
+        }else {
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            System.out.println("Thank You For Using Shopping Potal :)");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        }
     }
 }
+
